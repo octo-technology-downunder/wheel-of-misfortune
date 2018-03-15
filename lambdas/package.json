@@ -1,0 +1,20 @@
+{
+  "name": "colormapping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "result.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:octo-technology-downunder/wheel-of-misfortune.git"
+  },
+  "author": "Octo Technology",
+  "license": "ISC",
+  "dependencies": {
+    "nearest-color": "^0.4.2",
+    "serverless": "^1.26.1",
+    "slack-node": "^0.1.8"
+  }
+}
