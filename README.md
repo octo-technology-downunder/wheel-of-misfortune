@@ -37,5 +37,6 @@ pip install bottle
 The bottle server is started running
 
 ```
-LAMBDA_HOST="https://url.to/your/lambda" sudo python server.py
+export LAMBDA_HOST="https://url.to/your/lambda"
+sudo -E python server.py
 ```
