@@ -47,3 +47,22 @@ We used [dataplicity](http://dataplicity.com/) to expose our endpoint on Interne
 - refactor and document python code
 - improve color handling
 - document motor wiring
+
+# Contributors
+
+This repository is the merging of 3 different private repositories, from which some commits could not be publicly available. So the history is clear. But the contributors to this piece of work are:
+
+- [Arthur Baudry](https://github.com/ArthurBaudry)
+- [Ben Lachs]()
+- [Cédric Nicoloso](https://github.com/cedric25)
+- [David Alia](https://github.com/byalpel)
+- [Eric Favre](https://github.com/efavre)
+- [Erwan Alliaume](https://github.com/ealliaume)
+- [Ilya Trofimov](https://github.com/ilya-v-trofimov)
+- [Manon Souris](https://github.com/Manonmao)
+- [Mykyta Shulhin](https://github.com/NickitaX)
+- [Nicolas Pascal](https://github.com/nipasoz13)
+- [Tristan Le Guillou](https://github.com/t-leguillou)
+- [Wei Pang](https://github.com/weipang)
+- [William Ong](https://github.com/wyam)
+- [William Thomson]()
