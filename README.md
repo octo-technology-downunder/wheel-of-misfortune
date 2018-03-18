@@ -12,6 +12,8 @@ serverless deploy
 
 # Raspberry pi
 
+We used a Raspberry Pi Zero W.
+
 ## Sensor wiring
 
 SDL pin -  SDL pin
@@ -23,13 +25,16 @@ GND     -  GND
 
 To be completed
 
-## Software dependencies
+## Software
 
-We used a Raspberry Pi Zero W with the latest Raspian image. 
+We installed the latest Raspian image. 
 We had to first activate the I2C interface on the raspberry. This can be done with the ``` raspi-config ``` command.
 The sources contained in the [raspberry-pi](raspberry-pi/) folder must be copied to the raspeberry.
+They depend on the 2 following python modules:
 
+```
 sudo pip install adafruit-tcs34725 bottle
+```
 
 ## Server
 
