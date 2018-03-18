@@ -1,4 +1,4 @@
-#Lambdas
+# Lambdas
 
 Lambdas are deployed using serverless. You must first set your environment variables:
 ```
