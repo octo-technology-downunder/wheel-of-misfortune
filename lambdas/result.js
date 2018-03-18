@@ -1,6 +1,14 @@
 'use strict'
 
-const colors = {
+const AWS = require('aws-sdk');
+const Slack = require('slack-node');
+
+const dynamodb = new AWS.DynamoDB();
+const slack = new Slack();
+
+const webhookUri = process.env.SLACK_ENDPOINT;
+
+const COLORS = {
     red: '#EE2A26',
     yellow: '#F8F64C',
     blue: '#1946F2',
@@ -8,13 +16,7 @@ const colors = {
     purple: '#934AF0',
     orange: '#F57931'
 };
-
-const AWS = require('aws-sdk');
-const dynamodb = new AWS.DynamoDB();
-const nearestColor = require('nearest-color').from(colors);
-const Slack = require('slack-node');
-const webhookUri = process.env.SLACK_ENDPOINT;
-var slack = new Slack();
+const nearestColor = require('nearest-color').from(COLORS);
 
 const DEFAULT_WHEELID = 'default';
 const TABLE_NAME = 'wheel-of-missfortune';

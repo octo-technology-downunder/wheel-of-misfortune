@@ -44,6 +44,6 @@ We used [dataplicity](http://dataplicity.com/) to expose our endpoint on Interne
 
 # TODO
 
-- refactor python code
+- refactor and document python code
 - improve color handling
 - document motor wiring
