@@ -16,13 +16,10 @@ We used a Raspberry Pi Zero W.
 
 ## Sensor wiring
 
-SDL pin -  SDL pin
-
-SDA pin -  SDA pin
-
-+/-3V   -  +/-3V
-
-GND     -  GND
+- SDL pin <->  SDL pin
+- SDA pin <->  SDA pin
+- +/-3V   <->  +/-3V
+- GND     <->  GND
 
 ## Motor wiring
 
