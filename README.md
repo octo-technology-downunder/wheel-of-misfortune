@@ -1,3 +1,7 @@
+This code is about the *Wheel of Misfortune*, a product we built over a Coding Night at OCTO Technology. We have these Coding Nights every couple of months, and we use them to build a funny product ideas we have, usually something phyisical, not just an app, from afterwork till late. There are still some adjusments to do for the code to be maintainable, and for this wheel to be perfect, so we'll keep contributing to it. Don't hesitate to do it as well :) 
+
+Find the whole [story here](https://medium.com/@ericfavre/the-wheel-of-misfortune)
+
 # Lambdas
 
 Lambdas are deployed using serverless. You must first set your environment variables:
@@ -70,4 +74,4 @@ This repository is the merging of 3 different private repositories, from which s
 - [Tristan Le Guillou](https://github.com/t-leguillou)
 - [Wei Pang](https://github.com/weipang)
 - [William Ong](https://github.com/wyam)
-- [William Thomson]()
+- [William Thomson](https://github.com/wjt866)
