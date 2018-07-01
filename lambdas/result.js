@@ -5,18 +5,8 @@ const Slack = require('slack-node');
 
 const dynamodb = new AWS.DynamoDB();
 const slack = new Slack();
-
+const colorMapper = require('../colorMapper') 
 const webhookUri = process.env.SLACK_ENDPOINT;
-
-const COLORS = {
-    red: '#EE2A26',
-    yellow: '#F8F64C',
-    blue: '#1946F2',
-    green: '#28B22C',
-    purple: '#934AF0',
-    orange: '#F57931'
-};
-const nearestColor = require('nearest-color').from(COLORS);
 
 const DEFAULT_WHEELID = 'default';
 const TABLE_NAME = 'wheel-of-missfortune';
@@ -47,11 +37,11 @@ function sendSlackMessage (color, title, message, callback) {
 }
 
 module.exports.colormapping = (event, context, callback) => {
-  const hexadecimalColors = event.pathParameters.hexa.split('-');
+  const colorMappings = event.pathParameters.hexa.split('-');
   const wheelId = event.pathParameters.wheelId || DEFAULT_WHEELID;
-  let colorSelection = hexadecimalColors.map(hexa => nearestColor('#'+hexa));
-  let firstColor = colorSelection[0];
-  colorSelection = colorSelection.map(color => color.name).join('-');
+  let chosenColors = colorMappings.map(colorMapping => colorMapper.getColor(colorMapping));
+  let firstColor = chosenColors[0];
+  let colorKey = chosenColors.join('-');
   const params = {
     Key: {'id': {S: wheelId}},
     TableName: TABLE_NAME
@@ -61,7 +51,7 @@ module.exports.colormapping = (event, context, callback) => {
       console.log(err, err.stack);
       callback(err);
     } else {
-      var valueChoosen =  data.Item.values.M[colorSelection].S;
+      var valueChoosen =  data.Item.values.M[colorKey].S;
       sendSlackMessage(firstColor, valueChoosen, "You have been selected by the wheel of missfortune", callback);
     }
   });

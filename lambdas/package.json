@@ -13,7 +13,7 @@
   "author": "Octo Technology",
   "license": "ISC",
   "dependencies": {
-    "nearest-color": "^0.4.2",
+    "npm": "^6.1.0",
     "serverless": "^1.27.3",
     "slack-node": "^0.1.8"
   },
