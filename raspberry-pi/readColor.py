@@ -8,4 +8,4 @@ def read_color():
     red, green, blue, clear = sensor.get_raw_data()
     sensor.set_interrupt(True)
     sensor.disable()
-    return '{0}{1}{2}'.format(red, green, blue)
+    return '{{r:{0},g:{1},b:{2},c:{3}}}'.format(red, green, blue, clear)
