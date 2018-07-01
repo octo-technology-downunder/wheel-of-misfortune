@@ -14,7 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "nearest-color": "^0.4.2",
-    "serverless": "^1.26.1",
+    "serverless": "^1.27.3",
     "slack-node": "^0.1.8"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "serverless-plugin-bespoken": "0.0.9"
   }
 }

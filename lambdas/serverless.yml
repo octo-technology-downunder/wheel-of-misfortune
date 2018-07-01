@@ -1,16 +1,3 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
 service: wheel-of-missfortune
 
 provider:
@@ -19,13 +6,16 @@ provider:
   stage: dev
   region: ap-southeast-2
 
-# you can add statements to the Lambda function's IAM Role here
   iamRoleStatements:
     - Effect: "Allow"
       Action:
         - "dynamodb:*"
       Resource:
         - "arn:aws:dynamodb:*"
+
+plugins:
+  - serverless-plugin-inject-dependencies
+  - serverless-plugin-bespoken
 
 functions:
   spin:
@@ -46,6 +36,7 @@ functions:
           method: get
 
 package:
+  individually: true
   exclude:
     - tmp/**
     - .git/**
