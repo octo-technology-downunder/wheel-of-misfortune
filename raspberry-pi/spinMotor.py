@@ -9,7 +9,7 @@ def random_steps():
     result = int(2048 * (mean + random.random() * stddev))
     return result
 
-def spin_motor(total_step_count):
+def spin_motor(total_step_count = 0):
     GPIO.setmode(GPIO.BCM)
     step_pins = [4, 17, 23, 24]
 
@@ -29,9 +29,9 @@ def spin_motor(total_step_count):
     accelerate_factor = 3
     factor_cntr = 0
 
-    if total_step_count == 0
+    if total_step_count == 0:
         total_step_count = random_steps()
-    #total_steps_cnt = random_steps()
+
     step_counter = 0
 
     for itr in range(0, total_step_count):

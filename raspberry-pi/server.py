@@ -20,7 +20,7 @@ def spin_wheel(spin_counts):
         print('Starting spin #{0}...'.format(str(spin_index + 1)))
         spin_motor()
         colors.append(read_color())
-    print('Color returned by sensor: {0}'.format(colors))
+    print('Colors returned by sensor: {0}'.format(colors))
     notify_lambda(colors)
 
 def invoke_spin_wheel(spin_counts):

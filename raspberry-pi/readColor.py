@@ -8,4 +8,5 @@ def read_color():
     red, green, blue, clear = sensor.get_raw_data()
     sensor.set_interrupt(True)
     sensor.disable()
-    return '{{r:{0},g:{1},b:{2},c:{3}}}'.format(red, green, blue, clear)
+    print('RGBC read by sensor: {0}_{1}_{2}_{3}'.format(red, green, blue, clear))
+    return '{0}_{1}_{2}_{3}'.format(red, green, blue, clear)
