@@ -1,6 +1,6 @@
 This code is about the *Wheel of Misfortune*, a product we built over a Coding Night at OCTO Technology. We have these Coding Nights every couple of months, and we use them to build a funny product ideas we have, usually something phyisical, not just an app, from afterwork till late. There are still some adjusments to do for the code to be maintainable, and for this wheel to be perfect, so we'll keep contributing to it. Don't hesitate to do it as well :) 
 
-Find the whole [story here](https://medium.com/@ericfavre/the-wheel-of-misfortune)
+Find the whole [story here](https://medium.com/@ericfavre/the-wheel-of-misfortune-d19de190c60c)
 
 # Lambdas
 
