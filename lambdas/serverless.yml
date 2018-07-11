@@ -18,8 +18,8 @@ plugins:
   - serverless-plugin-bespoken
 
 functions:
-  spin:
-    handler: spin.spinwheel
+  slackInput:
+    handler: slackInput.handleInput
     environment:
       RASPBERRY_ENDPOINT: ${env:RASPBERRY_ENDPOINT}
     events:
