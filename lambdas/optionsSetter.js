@@ -44,7 +44,6 @@ function storeMapping(value, callback) {
   });
 }
 
-
 function mapOptions(options) {
   const colors = Object.keys(COLORS_HEXA);
   let mapping = {};
@@ -62,16 +61,17 @@ function mapOptions(options) {
       }
     } 
   }
+  let slackMessage = "";
   const optionDuplicationFactor = Math.floor(colorKeys.length / options.length);
   for (let duplicationNumber = 0 ; duplicationNumber < optionDuplicationFactor ; duplicationNumber++) {
     for(let i = 0 ; i < options.length ; i++){
       let colorIndex = (duplicationNumber  * options.length) + i;
-      // const firstColor = COLORS_HEXA[colorKeys[colorIndex].split('-')[0]]
-      // slackClient.sendSlackMessage(firstColor, 'A new option has been mapped!', colorKeys[colorIndex] + ' is mapped to ' + options[i], undefined);
+      slackMessage += 'The ' + colorKeys[colorIndex] + ' combination points to ' + options[i] + '\n';
       mapping[colorKeys[colorIndex]] = {S: options[i]};
     }
   }
   mapping[SPIN_COUNT] = {S: spinCount};
+  slackClient.sendSlackMessage(COLORS_HEXA['red'], 'New options have been assigned to the Wheel!', slackMessage, undefined);
   console.log('options mapping: ' + JSON.stringify(mapping));
   return mapping;
 }
