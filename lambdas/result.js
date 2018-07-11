@@ -1,40 +1,13 @@
 'use strict'
 
 const AWS = require('aws-sdk');
-const Slack = require('slack-node');
 
 const dynamodb = new AWS.DynamoDB();
-const slack = new Slack();
 const colorMapper = require('./colorMapper') 
-const webhookUri = process.env.SLACK_ENDPOINT;
+const slackClient = require('./slackClient')
 
 const DEFAULT_WHEELID = 'default';
 const TABLE_NAME = 'wheel-of-missfortune';
-
-function sendSlackMessage (firstColor, title, message, callback) {
-  slack.setWebhook(webhookUri);
-  slack.webhook({
-    channel: '0_general',
-    username: 'Wheel of missfortune',
-    icon_emoji: ':see_no_evil:',
-    attachments: [{
-      color: firstColor,
-      title: title,
-      text: message
-    }]
-  }, function (err) {
-    if (err) {
-      console.log(err);
-      callback(err);
-    } else {
-      const response = {
-        statusCode: 200,
-        body: 'Message sent successfully with this color ' + firstColor + ' !!',
-      };
-      callback(null, response);
-    }
-  });
-}
 
 module.exports.colormapping = (event, context, callback) => {
   const colorMappings = event.pathParameters.hexa.split('-');
@@ -54,7 +27,7 @@ module.exports.colormapping = (event, context, callback) => {
     } else {
       var valueChoosen =  data.Item.values.M[colorCode].S;
       console.log("Option revealed by color code: " + valueChoosen)
-      sendSlackMessage(firstColor, valueChoosen, "You have been selected by the wheel of missfortune", callback);
+      slackClient.sendSlackMessage(firstColor, valueChoosen, "You have been selected by the wheel of missfortune", callback);
     }
   });
 };

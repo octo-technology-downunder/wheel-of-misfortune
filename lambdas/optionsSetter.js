@@ -1,10 +1,12 @@
 'use strict';
 
 const AWS = require('aws-sdk');
+const slackClient = require('./slackClient')
 
 const dynamodb = new AWS.DynamoDB();
 
-const COLORS = ["red", "purple", "blue", "green", "yellow", "orange"];
+const COLORS_HEXA = {'red': '#FF0000', 'purple': '#663399', 'blue': '#0000ff', 'green': '#006400', 
+  'yellow': '#ffff00', 'orange': '#ff8c00'};
 const DEFAULT_WHEELID = 'default';
 const TABLE_NAME = 'wheel-of-missfortune';
 const SPIN_COUNT = 'spinCount';
@@ -44,18 +46,19 @@ function storeMapping(value, callback) {
 
 
 function mapOptions(options) {
+  const colors = Object.keys(COLORS_HEXA);
   let mapping = {};
-  if (options.length < 1 || options.length > COLORS.length * COLORS.length) {
+  if (options.length < 1 || options.length > colors * colors.length) {
     return mapping;
   }
   let spinCount = "1";
-  let colorKeys = COLORS;
-  if (options.length > COLORS.length) {
+  let colorKeys = colors;
+  if (options.length > colors.length) {
     spinCount = "2";
     colorKeys = [];
-    for(let i = 0 ; i < COLORS.length ; i++) {
-      for(let j = 0 ; j < COLORS.length ; j++) {
-        colorKeys.push(COLORS[i] + "-" + COLORS[j]);
+    for(let i = 0 ; i < colors.length ; i++) {
+      for(let j = 0 ; j < colors.length ; j++) {
+        colorKeys.push(colors[i] + "-" + colors[j]);
       }
     } 
   }
@@ -63,6 +66,8 @@ function mapOptions(options) {
   for (let duplicationNumber = 0 ; duplicationNumber < optionDuplicationFactor ; duplicationNumber++) {
     for(let i = 0 ; i < options.length ; i++){
       let colorIndex = (duplicationNumber  * options.length) + i;
+      // const firstColor = COLORS_HEXA[colorKeys[colorIndex].split('-')[0]]
+      // slackClient.sendSlackMessage(firstColor, 'A new option has been mapped!', colorKeys[colorIndex] + ' is mapped to ' + options[i], undefined);
       mapping[colorKeys[colorIndex]] = {S: options[i]};
     }
   }

@@ -22,6 +22,7 @@ functions:
     handler: slackInput.handleInput
     environment:
       RASPBERRY_ENDPOINT: ${env:RASPBERRY_ENDPOINT}
+      SLACK_ENDPOINT: ${env:SLACK_ENDPOINT}
     events:
       - http:
           path: spin
