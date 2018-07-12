@@ -8,7 +8,7 @@ module.exports.sendSlackMessage = (sideColor, title, message, callback) => {
   console.log('slack uri is ' + webhookUri);
   slack.setWebhook(webhookUri);
   slack.webhook({
-    channel: 'bot-test',
+    channel: '0_general',
     username: 'Wheel of missfortune',
     icon_emoji: ':see_no_evil:',
     attachments: [{
